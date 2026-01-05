@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 
 class TbBarangController extends Controller
 {
-    public function index()
-    {
-        $barangs = tb_barang::latest()->paginate(10);
-        return view('barang.index', compact('barangs'));
-    }
-
+public function index()
+{
+    $barangs = tb_barang::orderBy('id', 'asc')->paginate(10);
+    return view('barang.index', compact('barangs'));
+}
     public function create()
     {
         return view('barang.create');
